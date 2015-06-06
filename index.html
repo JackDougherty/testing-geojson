@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>testing-geojson</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+</head>
+<body>
+
+<div id="map"></div>
+	<script>
+	var ocmUrl = 'http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
+	ocmAttr = 'Map data &copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+	osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+	osmAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
+	var ocm   = L.tileLayer(ocmUrl, {attribution: ocmAttr}),
+	osm   = L.tileLayer(osmUrl, {attribution: osmAttr}),
+	esriStreets = L.esri.basemapLayer("Streets"); // semicolor for last variable
+	
+	var map = L.map('map', {
+	center: [41.77, -72.69],
+	zoom: 5,
+	layers: [osm]   //default display can be base + overlays [ocm, arcGIS, track]
+	});
+	var baseMaps = {
+	"OpenCycleMap": ocm,
+	"OpenStreetMap": osm,
+	"ESRI StreetMap": esriStreets
+	};
+
+	</script>
+</body>
+</html>
