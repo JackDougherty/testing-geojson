@@ -39,9 +39,9 @@
 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
 	}).addTo(map);
 
-	GeoJSON.parse(data, {Point: ['lat', 'lng']});
+	GeoJSON.parse(data, {Point: ['lat', 'lng']});  // See https://github.com/caseypt/geojson.js 
 
-	new L.GeoJSON(Point).addTo(map);
+	new L.GeoJSON(Point).addTo(map);	// I don't know proper syntax to make this work here
 
 	</script>
 </body>
