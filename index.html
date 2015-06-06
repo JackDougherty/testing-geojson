@@ -39,9 +39,9 @@
 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
 	}).addTo(map);
 
-	markers = GeoJSON.parse(data, {Point: ['latitude', 'longitude']});
+	GeoJSON.parse(data, {Point: ['lat', 'lng']});
 
-	new L.GeoJSON(markers).addTo(map);
+	new L.GeoJSON(Point).addTo(map);
 
 	</script>
 </body>
