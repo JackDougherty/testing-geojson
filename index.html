@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+	<script type="text/javascript" src="js/geojson.min.js"></script>
 	
-	<script type="text/javascript" src="quakes-geojson.js"></script>
 	
 	<style>
 		body {
@@ -25,7 +25,7 @@
 <div id='map'></div>
 	<script>
 
-	var markers = {  
+	var data = {  
    "entity":[  
       {  
          "alert":null,
@@ -462,7 +462,9 @@
 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
 	}).addTo(map);
 
-	new L.GeoJSON(markers).addTo(map);
+	GeoJSON.parse(data, {Point: ['latitude', 'longitude']});
+
+	new L.GeoJSON(data).addTo(map);
 
 	</script>
 </body>
