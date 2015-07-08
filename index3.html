@@ -57,13 +57,16 @@
   };
 
   L.esri.basemapLayer('Streets').addTo(map);
-  L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/CTTransitBusses/MapServer/0', {
-   pointToLayer: function (geojson, latlng) {
+  L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/CTTransitBusses/MapServer/0').addTo(map);
+  
+  /* L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/CTTransitBusses/MapServer/0', {
+    pointToLayer: function (geojson, latlng) {
       return L.marker(latlng, {
-        icon: icons[geojson.properties.direction.toLowerCase()]
+        // icon: icons[geojson.properties.direction.toLowerCase()]
+        icon: 
       });
     },
-  }).addTo(map);
+  }).addTo(map); */
 </script>
 
 </body>
