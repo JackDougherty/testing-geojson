@@ -26,13 +26,9 @@
 
   L.esri.basemapLayer('Streets').addTo(map);
   
-// As with any other AJAX request, this technique is subject to the Same Origin Policy:
-// http://en.wikipedia.org/wiki/Same_origin_policy
-// So the CSV file must be on the same domain as the Javascript, or the server
-// delivering it should support CORS.
-var featureLayer = L.featureLayer()
-    .loadURL('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson')
-    .addTo(map);
+// Requires CORS support on the remote server
+var quakes = L.geoJson().addTo(map);
+quakes.loadURL('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
 </script>
 
 </body>
