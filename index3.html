@@ -9,8 +9,11 @@
   <script src="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
   
   <!-- Load Esri Leaflet from CDN -->
-  <!-- we encourage you to replace 'latest' with a hardcode version number (like '1.0.0-rc.7') in production applications -->
+  <!-- we encourage you to replace 'latest' with a hardcoded version number (like '1.0.0-rc.8') in production applications -->
   <script src="//cdn.jsdelivr.net/leaflet.esri/latest/esri-leaflet.js"></script>
+  
+  <!-- Load jquery to load external geoJson -->
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
   <style>
     body { margin:0; padding:0; }
@@ -26,7 +29,23 @@
 
   L.esri.basemapLayer('Streets').addTo(map);
   
-  var busses = L.esri.featureLayer('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson').addTo(map);
+  /* Tutorial http://savaslabs.com/2015/05/18/mapping-geojson.html */
+  function addDataToMap(data, map) {
+    var dataLayer = L.geoJson(data);
+    dataLayer.addTo(map);
+}
+$.getJSON("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson", function(data) { addDataToMap(data, map); });
+  
+function addDataToMap(data, map) {
+    var dataLayer = L.geoJson(data, {
+        onEachFeature: function(feature, layer) {
+            var popupText = "Magnitude: " + feature.properties.mag
+                + "<br>Location: " + feature.properties.place
+                + "<br><a href='" + feature.properties.url + "'>More info</a>";
+            layer.bindPopup(popupText); }
+        });
+    dataLayer.addTo(map);
+}
   
 </script>
 
