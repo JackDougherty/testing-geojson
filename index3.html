@@ -27,8 +27,10 @@
   L.esri.basemapLayer('Streets').addTo(map);
   
 // Requires CORS support on the remote server
-var quakes = L.geoJson().addTo(map);
-quakes.loadURL('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
+var quakes = L.geoJson({
+  .loadURL('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson'),
+  .addTo(map);
+  });
 </script>
 
 </body>
