@@ -17,12 +17,12 @@ var map;
 function initialize() {
   // Create a simple map.
   map = new google.maps.Map(document.getElementById('map-canvas'), {
-    zoom: 8,
+    zoom: 3,
     center: {lat: 41.76, lng: -72.67}
   });
 
-  // Load a GeoJSON from the same server as our demo (or hope that Hartford.gov supports cross-domain access)
-  map.data.loadGeoJson('http://gisdata.hartford.gov/datasets/453fb4c1dff74efdbdb46fadfd257e28_0.geojson');
+  // CORS must be enabled
+  map.data.loadGeoJson('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
