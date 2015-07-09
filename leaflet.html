@@ -34,7 +34,7 @@
     var dataLayer = L.geoJson(data);
     dataLayer.addTo(map);
 }
-$.getJSON("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson", function(data) { addDataToMap(data, map); });
+$.getJSON("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson", function(data) { addDataToMap(data, map); });
   
 function addDataToMap(data, map) {
     var dataLayer = L.geoJson(data, {
