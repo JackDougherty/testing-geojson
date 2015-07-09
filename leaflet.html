@@ -34,9 +34,7 @@
     var dataLayer = L.geoJson(data);
     dataLayer.addTo(map);
 }
-  /* CORS must be enabled; avoid http vs https conflicts */
-$.getJSON("//earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson", function(data) { addDataToMap(data, map); });
-  
+
 function addDataToMap(data, map) {
     var dataLayer = L.geoJson(data, {
         onEachFeature: function(feature, layer) {
@@ -47,6 +45,8 @@ function addDataToMap(data, map) {
         });
     dataLayer.addTo(map);
 }
+/* CORS must be enabled; avoid http vs https conflicts */
+$.getJSON("//earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson", function(data) { addDataToMap(data, map); });
   
 </script>
 
