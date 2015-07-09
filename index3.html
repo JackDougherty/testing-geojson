@@ -30,7 +30,7 @@
 // http://en.wikipedia.org/wiki/Same_origin_policy
 // So the CSV file must be on the same domain as the Javascript, or the server
 // delivering it should support CORS.
-var featureLayer = L.mapbox.featureLayer()
+var featureLayer = L.featureLayer()
     .loadURL('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson')
     .addTo(map);
 </script>
