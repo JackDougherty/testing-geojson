@@ -31,12 +31,15 @@
   
   /* Tutorial http://maptimeboston.github.io/leaflet-intro/ */
   
-  // Simple: load geojson from an external file in the same directory, then add to map with no styling; spell L.geoJson exactly this way
+  // Simple: load geojson polygon from an external file in the same directory, then add to map with no styling; spell L.geoJson exactly this way
   $.getJSON("hartford-border.geojson",function(border){ 
     L.geoJson(border).addTo(map);
   });
   
-  // Load geojson and add with styling
+  // Load geojson polygon, add styling, then add to map
+  $.getJSON("bloomfield-border.geojson",function(border){
+    L.geoJson(border)addTo(map);
+  });
   
   
 </script>
