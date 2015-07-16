@@ -17,10 +17,28 @@
 <!-- Requires signing up for Mapbox account token -->
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoiamFja2RvdWdoZXJ0eSIsImEiOiJxMi11TGlzIn0.ydUTGpMKcADi7fKPxy0GVA';
-var map = L.mapbox.map('map', 'mapbox.streets')
-    .setView([41.76, -72.67], 13);
+var map = L.mapbox.map('map')
+  .setView([41.76, -72.67], 13);
 
 // load geoJson files in same directory or remote server (if CORS enabled; avoid http vs https errors)
+// set up using L.control.layers
+
+L.control.layers({
+  'Mapbox Streets': L.mapbox.tileLayer('mapbox.streets').addTo(map)';
+  'Mapbox Light': L.mapbox.tileLayer('mapbox.light')
+}, {
+  'Hartford': L.mapbox.featureLayer()
+    .loadURL('hartford-border.geojson')
+    .addTo(map);
+  'Bloomfield': L.mapbox.featureLayer()
+    .loadURL('bloomfield-border.geojson')
+    .addTo(map);
+  'Bus locations': L.mapbox.featureLayer()
+    .loadURL('//gisdata.hartford.gov/datasets/453fb4c1dff74efdbdb46fadfd257e28_0.geojson') 
+    .addTo(map);
+
+
+/* WORKS
 var hartford = L.mapbox.featureLayer()
     .loadURL('hartford-border.geojson')
     .addTo(map);
@@ -36,6 +54,7 @@ var busLocations = L.mapbox.featureLayer()
       }
     }) 
     .addTo(map);
+*/
 
 </script>
 </body>
