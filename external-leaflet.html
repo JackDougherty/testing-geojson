@@ -45,28 +45,29 @@
   });
   */
   
-  /*
-    // Load geojson polygon, declare as variable (for layer control), add styling, then add to map
-  $.getJSON("bloomfield-border.geojson",function(borderB){ 
-    var bloomfield = L.geoJson(borderB, {
+    
+    // BUT if you need to declare layer as a variable (for layer control)
+    // download geojson and modify file: var borders = {...     and }; at end; change suffix to .js
+    // Load file in script, add as geojson layer, declare as variable (for layer control), add styling, then add to map
+    <script src="bloomfield-border.js"></script>
+    var bloomfield = L.geoJson(borders, {   
       style: function(feature){
         return { color: "red", 
         fillOpacity: 0
         };
       }
     });
-  });
-*/
+
   var map = new L.map('map', {
             center: new L.LatLng(41.7665, -72.6814),
             zoom: 11,
-            // layers: [streets, bloomfield],   //default display, can be base + overlays
+            layers: [streets, bloomfield],   //default display, can be base + overlays
         });
 
   var streets = L.esri.basemapLayer('Streets');
   
   var baseLayers = {"Streets": streets};
-  var overlays = {/*"Bloomfield border": bloomfield */ }; 
+  var overlays = {"Bloomfield border": bloomfield }; 
   L.control.layers(baseLayers, overlays).addTo(map);
 
 
