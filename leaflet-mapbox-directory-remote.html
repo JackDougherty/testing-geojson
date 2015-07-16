@@ -28,7 +28,7 @@ var bloomfield = L.mapbox.featureLayer()
     .loadURL('bloomfield-border.geojson')
     .addTo(map);
 var busLocations = L.mapbox.featureLayer()
-    .loadURL('//gisdata.hartford.gov/datasets/453fb4c1dff74efdbdb46fadfd257e28_0.geojson')
+    .loadURL('//gisdata.hartford.gov/datasets/453fb4c1dff74efdbdb46fadfd257e28_0.geojson', { style: simplestyle.style}) // try later marker-symbol: "bus"
     .addTo(map);
 </script>
 </body>
