@@ -28,8 +28,8 @@
   // Tutorial http://maptimeboston.github.io/leaflet-intro/ 
 
   // Simple: load geojson polygon from an external file in the same directory, then add to map with no styling; spell L.geoJson exactly this way
-  $.getJSON("hartford-border.geojson",function(border){ 
-    L.geoJson(border).addTo(map);
+  $.getJSON("hartford-border.geojson",function(borderH){ 
+    L.geoJson(borderH).addTo(map);
   });
   
   /*
@@ -46,8 +46,8 @@
   */
   
     // Load geojson polygon, declare as variable (for layer control), add styling, then add to map
-  $.getJSON("bloomfield-border.geojson",function(border){ 
-    var bloomfield = L.geoJson(border, {
+  $.getJSON("bloomfield-border.geojson",function(borderB){ 
+    var bloomfield = L.geoJson(borderB, {
       style: function(feature){
         return { color: "red", 
         fillOpacity: 0
@@ -55,8 +55,7 @@
       }
     });
   });
-  
-    var map = L.map('map')
+var map = L.map('map')
     .setView([41.7665, -72.6814], 11);
     
   var map = new L.map('map', {
