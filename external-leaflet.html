@@ -64,9 +64,8 @@
   }
   $.getJSON("bloomfield-border.geojson", function(data) { addDataToMap(data,map); });
   
-  
-  var baseLayers = { }; //empty
-  var overlays = {"Bloomfield border": bloomfield}; 
+  var baseLayers = {"Streets": Streets};
+  var overlays = {"Bloomfield border": bloomfield, "HPS locations":locations }; 
   L.control.layers(baseLayers, overlays).addTo(map);
 
 
