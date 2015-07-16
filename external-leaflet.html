@@ -51,8 +51,9 @@
   
   // Another way, if need to declare new layer as a variable, for layer control
   // Load geojson polygon, declare as variable, add styling, and add to map with layer control
-  $.getJSON("bloomfield-border.geojson",function(border){ 
-    var bloomfield = L.geoJson(border, {
+  
+  function addDataToMap(data,map) {
+    var bloomfield = L.geoJson(data, {
       style: function(feature){
         return { color: "red", 
         fillOpacity: 0
@@ -60,6 +61,7 @@
       }
     });
   });
+  $.getJSON("bloomfield-border.geojson", function(data){addDataToMap}(data,map); });
   var baseLayers = {
     bloomfield
   };
