@@ -32,67 +32,16 @@
             zoom: 11,
         });
         
-        
+$.getJSON("bloomfield-border.geojson",function(border){        
   L.control.layers({
     'ESRI Streets': L.esri.basemapLayer('Streets').addTo(map),
     'ESRI Topo': L.esri.basemapLayer('Topo')
 }, {
-    'Bike Stations': L.mapbox.tileLayer('examples.bike-locations'),
-    'Bike Lanes': L.mapbox.tileLayer('examples.bike-lanes')
-}).addTo(map);
-
-
-
-  
-  // Simple: load geojson polygon from an external file in the same directory, then add to map with no styling; spell L.geoJson exactly this way
-  $.getJSON("hartford-border.geojson",function(borderH){ 
-    L.geoJson(borderH).addTo(map);
-  });
-  
-  // Load geojson polygon, add styling, then add directly to map, because I cannot do this using L.control.layer
-  $.getJSON("bloomfield-border.geojson",function(border){ 
-    L.geoJson(border, {
-      style: function(feature){
+    'Bloomfield': L.geoJson(border, {
+          style: function(feature){
         return { color: "red", 
         fillOpacity: 0
         };
       }
-    }).addTo(map);
-  });
-  
-  /*
-  // Simple: load geojson points from external file in same directory, add with no styling
-  $.getJSON("police-locations.geojson",function(locations){
-    L.geoJson(locations).addTo(map);
-    });
-  */
-  
-  /*
-  // load geojson points from external file, add icon 
-  $.getJSON("police-locations.geojson",function(locations){
-    var policeIcon = L.icon({
-      iconUrl: 'police-icon.svg',
-      iconSize: [30,30]
-    });
-    L.geoJson(locations,{
-      pointToLayer: function(feature,latlng){
-        return L.marker(latlng,{icon: policeIcon});
-      }
-    }).addTo(map);
-  });
-  */
-  
-  // load geojson points from external file, add icon, and popup window (based on properties in the geoJson file)
-  $.getJSON("police-locations.geojson",function(locations){
-    var policeIcon = L.icon({
-      iconUrl: 'police-icon.svg',
-      iconSize: [30,30]
-    });
-    L.geoJson(locations,{
-      pointToLayer: function(feature,latlng){
-        var marker = L.marker(latlng,{icon: policeIcon});
-        marker.bindPopup(feature.properties.TYPE + '<br/>' + feature.properties.ADDRESS);
-        return marker;
-      }
-    }).addTo(map);
-  });
+    })
+}).addTo(map);
