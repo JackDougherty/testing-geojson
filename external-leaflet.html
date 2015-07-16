@@ -38,7 +38,13 @@
   
   // Load geojson polygon, add styling, then add to map
   $.getJSON("bloomfield-border.geojson",function(border){ 
-    L.geoJson(border).addTo(map);
+    L.geoJson(border, {
+      style: function(feature){
+        return { color: "#f00", 
+        fillOpacity: 0
+        };
+      }
+    }).addTo(map);
   });
 
   
