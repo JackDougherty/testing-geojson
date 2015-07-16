@@ -31,7 +31,8 @@
             center: new L.LatLng(41.7665, -72.6814),
             zoom: 11,
         });
-        
+
+/* WORKS
 $.getJSON("bloomfield-border.geojson",function(border){        
   L.control.layers({
     'ESRI Streets': L.esri.basemapLayer('Streets').addTo(map),
@@ -40,7 +41,20 @@ $.getJSON("bloomfield-border.geojson",function(border){
     'Bloomfield': L.geoJson(border).addTo(map)
   }).addTo(map);
 });
+*/
 
+// Try two separate calls for two files
+$.getJSON("hartford-border.geojson",function(borderh){
+  $.getJSON("bloomfield-border.geojson",function(borderb){        
+    L.control.layers({
+      'ESRI Streets': L.esri.basemapLayer('Streets').addTo(map),
+      'ESRI Topographic': L.esri.basemapLayer('Topographic')
+    }, {
+      'Hartford': L.geoJson(borderh).addTo(map),
+      'Bloomfield': L.geoJson(borderb).addTo(map)
+    }).addTo(map);
+  });
+});
 
 </script>
 
