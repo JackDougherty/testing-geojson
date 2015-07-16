@@ -32,7 +32,7 @@
             zoom: 11,
         });
 
-/* WORKS
+/* Load a single geoJson file, with control layers
 $.getJSON("bloomfield-border.geojson",function(border){        
   L.control.layers({
     'ESRI Streets': L.esri.basemapLayer('Streets').addTo(map),
@@ -43,7 +43,7 @@ $.getJSON("bloomfield-border.geojson",function(border){
 });
 */
 
-// Try two separate calls for two files
+// Nested functions to call two geoJson files, with control layers
 $.getJSON("hartford-border.geojson",function(borderh){
   $.getJSON("bloomfield-border.geojson",function(borderb){        
     L.control.layers({
