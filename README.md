@@ -1,13 +1,19 @@
 # testing-geojson
 
-Access remote geojson data or convert using http://geojson.io
+Different methods to load and display data as L.geoJson layers in Leaflet or Google Maps API
 
-### loading external geojson files in same directory
-- tutorial: http://maptimeboston.github.io/leaflet-intro/
-- load jQuery to create a simple function to call the data
+1) GetJSON call of geojson files in same directory
+- demo http://jackdougherty.github.io/testing-geojson/getjsoncall-directory-leaflet.html
+- based on tutorial: http://maptimeboston.github.io/leaflet-intro/
+- requires adding jQuery into header script
+- problem: I cannot figure out how to initialize each layer as a variable to display with L.control.layers
 
 ### demo
 http://jackdougherty.github.io/testing-geojson/external-leaflet.html
+
+Access remote geojson data or convert using http://geojson.io
+
+
 
 ### loading geojson files from a remote url
 - tutorial http://savaslabs.com/2015/05/18/mapping-geojson.html
