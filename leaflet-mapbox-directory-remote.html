@@ -24,15 +24,15 @@ var map = L.mapbox.map('map')
 // set up using L.control.layers
 
 L.control.layers({
-  'Mapbox Streets': L.mapbox.tileLayer('mapbox.streets').addTo(map)';
+  'Mapbox Streets': L.mapbox.tileLayer('mapbox.streets').addTo(map),
   'Mapbox Light': L.mapbox.tileLayer('mapbox.light')
 }, {
   'Hartford': L.mapbox.featureLayer()
     .loadURL('hartford-border.geojson')
-    .addTo(map);
+    .addTo(map),
   'Bloomfield': L.mapbox.featureLayer()
     .loadURL('bloomfield-border.geojson')
-    .addTo(map);
+    .addTo(map),
   'Bus locations': L.mapbox.featureLayer()
     .loadURL('//gisdata.hartford.gov/datasets/453fb4c1dff74efdbdb46fadfd257e28_0.geojson') 
     .addTo(map);
