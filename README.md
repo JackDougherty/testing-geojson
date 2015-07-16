@@ -2,11 +2,11 @@
 
 Different methods to load and display data as L.geoJson layers in Leaflet or Google Maps API
 
-1) GetJSON call of geojson files in same directory
-- demo http://jackdougherty.github.io/testing-geojson/getjsoncall-directory-leaflet.html
+1) a jQuery getJSON call of geojson files in same directory in Leaflet
+- demo http://jackdougherty.github.io/testing-geojson/getjson-directory-leaflet.html
 - based on tutorial: http://maptimeboston.github.io/leaflet-intro/
 - requires adding jQuery into header script
-- problem: I cannot figure out how to initialize each layer as a variable to display with L.control.layers
+- problem: cannot figure out how to initialize each layer as a variable to use this method with L.control.layers
 
 ### demo
 http://jackdougherty.github.io/testing-geojson/external-leaflet.html
