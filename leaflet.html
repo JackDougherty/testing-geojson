@@ -31,7 +31,7 @@
   
   /* Tutorial http://savaslabs.com/2015/05/18/mapping-geojson.html */
   function addDataToMap(data, map) {
-    var dataLayer = L.geoJson(data);
+    var dataLayer = L.geoJson(data);  // be sure to spell L.geoJson with this exact capitalization
     dataLayer.addTo(map);
 }
 

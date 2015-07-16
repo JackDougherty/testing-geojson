@@ -1,11 +1,15 @@
 # testing-geojson
 
-demos: load geoJson from remote URL, must have CORS enabled, avoid http vs https hosting conflicts
+- load geoJson from remote URL
+- must have CORS enabled on remote server
+- served over http, not https, to avoid mix error, since source data is http
 
 source http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson
 
-Google Maps (not currently working)
-https://jackdougherty.github.io/testing-geojson/google.html
+## demos
 
-Leaflet with jQuery (also not currently working)
-https://jackdougherty.github.io/testing-geojson/leaflet.html
+Google Maps 
+http://jackdougherty.github.io/testing-geojson/google.html
+
+Leaflet with jQuery 
+http://jackdougherty.github.io/testing-geojson/leaflet.html
