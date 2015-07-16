@@ -3,7 +3,7 @@
 Different methods to load and display geoJson map data, using Leaflet API (with or without MapBox) or Google Maps API
 
 1) Leaflet with jQuery getJSON call of geojson files in same directory
-- Leaflet demo http://jackdougherty.github.io/testing-geojson/getjson-directory-leaflet.html
+- Leaflet demo http://jackdougherty.github.io/testing-geojson/leaflet-getjson-directory.html
 - based on tutorial: http://maptimeboston.github.io/leaflet-intro/
 - requires adding jQuery into header script
 - requires adding geojson files into directory (convert from KML, CSV, other formats with http://geojson.io)
@@ -13,7 +13,7 @@ Different methods to load and display geoJson map data, using Leaflet API (with 
 http://jackdougherty.github.io/testing-geojson/external-leaflet.html
 
 3) Leaflet with jQuery getJSON call of geojson files on remote server
-- Leaflet demo http://jackdougherty.github.io/testing-geojson/remote-leaflet.html
+- Leaflet demo http://jackdougherty.github.io/testing-geojson/leaflet-getjson-remote.html
 - sample source data: http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson
 - requires adding jQuery into header script
 - remote server must be CORS enabled
@@ -25,7 +25,7 @@ Mapbox L.mapbox.featurelayer method
 https://www.mapbox.com/mapbox.js/example/v1.0.0/geojson-marker-from-url/
 
 5) Google map.data.loadGeoJson call to remote server
-- Google demo http://jackdougherty.github.io/testing-geojson/remote-google.html
+- Google demo http://jackdougherty.github.io/testing-geojson/google-remote.html
 - sample source data: http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson
 - remote server must be CORS enabled
 - avoid http vs https mix errors; link to hosted web page must match source (in this case, http)
