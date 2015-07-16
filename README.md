@@ -1,6 +1,6 @@
 # testing-geojson
 
-## loading external geojson files in the same folder on same server
+## loading external geojson files in same directory
 - tutorial: http://maptimeboston.github.io/leaflet-intro/
 - load jQuery to create a simple function to call the data
 
