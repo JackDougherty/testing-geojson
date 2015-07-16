@@ -12,8 +12,11 @@
   <!-- we encourage you to replace 'latest' with a hardcoded version number (like '1.0.0-rc.8') in production applications -->
   <script src="//cdn.jsdelivr.net/leaflet.esri/latest/esri-leaflet.js"></script>
   
-  <!-- Load jquery to load  geoJson -->
+  <!-- Load jQuery to do JSON calls when needed -->
+  
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <!--Load file to be added as a geojson layer, without need for jQuery-->
+    <script src="bloomfield-border.js"></script>
 
   <style>
     body { margin:0; padding:0; }
@@ -48,8 +51,7 @@
     
     // BUT if you need to declare layer as a variable (for layer control)
     // download geojson and modify file: var borders = {...     and }; at end; change suffix to .js
-    // Load file in script, add as geojson layer, declare as variable (for layer control), add styling, then add to map
-    <script src="bloomfield-border.js"></script>
+    // Load file in header script above, add as geojson layer, declare as variable (for layer control), add styling, then add to map
     var bloomfield = L.geoJson(borders, {   
       style: function(feature){
         return { color: "red", 
