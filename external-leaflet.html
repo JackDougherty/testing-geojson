@@ -54,7 +54,8 @@
     });
   */
   
-  // load geojson points from external file, add styling
+  /*
+  // load geojson points from external file, add icon 
   $.getJSON("police-locations.geojson",function(locations){
     var policeIcon = L.icon({
       iconUrl: 'police-icon.svg',
@@ -63,6 +64,21 @@
     L.geoJson(locations,{
       pointToLayer: function(feature,latlng){
         return L.marker(latlng,{icon: policeIcon});
+      }
+    }).addTo(map);
+  });
+  */
+  // load geojson points from external file, add icon, and popup window
+  $.getJSON("police-locations.geojson",function(locations){
+    var policeIcon = L.icon({
+      iconUrl: 'police-icon.svg',
+      iconSize: [30,30]
+    });
+    L.geoJson(locations,{
+      pointToLayer: function(feature,latlng){
+        var marker = L.marker(latlng,{icon: policeIcon});
+        marker.bindPopup(feature.properties.TYPE + '<br/' + feature.properties.ADDRESS);
+        return marker;
       }
     }).addTo(map);
   });
