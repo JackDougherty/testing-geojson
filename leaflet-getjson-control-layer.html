@@ -36,15 +36,11 @@ $.getJSON("bloomfield-border.geojson",function(border){
   L.control.layers({
     'ESRI Streets': L.esri.basemapLayer('Streets').addTo(map),
     'ESRI Topo': L.esri.basemapLayer('Topo')
-}, {
-    'Bloomfield': L.geoJson(border, {
-          style: function(feature){
-        return { color: "red", 
-        fillOpacity: 0
-        };
-      }
-    })
-}).addTo(map);
+  }, {
+    'Bloomfield': L.geoJson(border)
+  }).addTo(map);
+});
+
 
 </script>
 
