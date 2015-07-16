@@ -77,7 +77,7 @@
     L.geoJson(locations,{
       pointToLayer: function(feature,latlng){
         var marker = L.marker(latlng,{icon: policeIcon});
-        marker.bindPopup(feature.properties.TYPE + '<br/' + feature.properties.ADDRESS);
+        marker.bindPopup(feature.properties.TYPE + '<br/>' + feature.properties.ADDRESS);
         return marker;
       }
     }).addTo(map);
