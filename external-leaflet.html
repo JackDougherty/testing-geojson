@@ -57,7 +57,7 @@
   // load geojson points from external file, add styling
   $.getJSON("police-locations.geojson",function(locations){
     var policeIcon = L.icon({
-      iconURL: 'police-icon.svg',
+      iconUrl: 'police-icon.svg',
       iconSize: [30,30]
     });
     L.geoJson(locations,{
