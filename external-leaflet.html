@@ -28,7 +28,7 @@
   var map = L.map('map')
     .setView([41.7665, -72.6814], 11);
 
-  L.esri.basemapLayer('Streets').addTo(map);
+  var streets = L.esri.basemapLayer('Streets').addTo(map);
   
   // Tutorial http://maptimeboston.github.io/leaflet-intro/ 
 
@@ -50,6 +50,7 @@
   });
   */
   
+  /* NOT WORKING
   // Another way, if need to declare new layer as a variable, for layer control
   // Load geojson polygon, declare as variable, add styling, and add to map with layer control
   
@@ -63,8 +64,21 @@
     });
   }
   $.getJSON("bloomfield-border.geojson", function(data) { addDataToMap(data,map); });
+  */
   
-  var baseLayers = {"Streets": Streets};
+    // Load geojson polygon, add styling, then add to map
+  $.getJSON("bloomfield-border.geojson",function(border){ 
+    var bloomfield = L.geoJson(border, {
+      style: function(feature){
+        return { color: "red", 
+        fillOpacity: 0
+        };
+      }
+    }).addTo(map);
+  });
+  
+  
+  var baseLayers = {"Streets": streets};
   var overlays = {"Bloomfield border": bloomfield, "HPS locations":locations }; 
   L.control.layers(baseLayers, overlays).addTo(map);
 
