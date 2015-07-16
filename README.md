@@ -1,6 +1,6 @@
 # testing-geojson
 
-Different methods to load and display geoJson map layers, using Leaflet API or Google Maps API
+Different methods to load and display geoJson map data, using Leaflet API (with or without MapBox) or Google Maps API
 
 1) Leaflet with jQuery getJSON call of geojson files in same directory
 - Leaflet demo http://jackdougherty.github.io/testing-geojson/getjson-directory-leaflet.html
@@ -21,6 +21,8 @@ http://jackdougherty.github.io/testing-geojson/external-leaflet.html
 - based on Leaflet tutorial http://savaslabs.com/2015/05/18/mapping-geojson.html
 
 4) Problem: How do to Leaflet remote call and declare each layer as a variable, to use with L.control.layers?
+Mapbox L.mapbox.featurelayer method
+https://www.mapbox.com/mapbox.js/example/v1.0.0/geojson-marker-from-url/
 
 5) Google map.data.loadGeoJson call to remote server
 - Google demo http://jackdougherty.github.io/testing-geojson/remote-google.html
