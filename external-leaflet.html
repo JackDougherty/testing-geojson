@@ -25,11 +25,6 @@
 <div id="map"></div>
 
 <script>
-  var map = L.map('map')
-    .setView([41.7665, -72.6814], 11);
-
-  var streets = L.esri.basemapLayer('Streets').addTo(map);
-  
   // Tutorial http://maptimeboston.github.io/leaflet-intro/ 
 
   // Simple: load geojson polygon from an external file in the same directory, then add to map with no styling; spell L.geoJson exactly this way
@@ -50,23 +45,7 @@
   });
   */
   
-  /* NOT WORKING
-  // Another way, if need to declare new layer as a variable, for layer control
-  // Load geojson polygon, declare as variable, add styling, and add to map with layer control
-  
-  function addDataToMap(data,map) {
-    var bloomfield = L.geoJson(data, {
-      style: function(feature){
-        return { color: "red", 
-        fillOpacity: 0
-        };
-      }
-    });
-  }
-  $.getJSON("bloomfield-border.geojson", function(data) { addDataToMap(data,map); });
-  */
-  
-    // Load geojson polygon, add styling, then add to map
+    // Load geojson polygon, declare as variable (for layer control), add styling, then add to map
   $.getJSON("bloomfield-border.geojson",function(border){ 
     var bloomfield = L.geoJson(border, {
       style: function(feature){
@@ -74,9 +53,19 @@
         fillOpacity: 0
         };
       }
-    }).addTo(map);
+    });
   });
   
+    var map = L.map('map')
+    .setView([41.7665, -72.6814], 11);
+    
+  var map = new L.map('map', {
+            center: new L.LatLng(41.7665, -72.6814),
+            zoom: 11,
+            layers: [streets, locations, bloomfield],   //default display, can be base + overlays
+        });
+
+  var streets = L.esri.basemapLayer('Streets');
   
   var baseLayers = {"Streets": streets};
   var overlays = {"HPS locations":locations, "Bloomfield border": bloomfield }; 
