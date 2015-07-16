@@ -47,7 +47,10 @@
     }).addTo(map);
   });
 
-  // load 
+  // Simple: load geojson points from extenral file in same directory, add with no styling
+  $.getJSON("police-locations.geojson",function(locations){
+    L.geoJson(locations).addTo(map);
+    });
   
 </script>
 
