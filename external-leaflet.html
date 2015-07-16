@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset=utf-8 />
-  <title>Local Leaflet load geoJson</title>
+  <title>Leaflet load external geojson</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
   <!-- Load Leaflet from CDN-->
@@ -12,9 +12,7 @@
   <!-- we encourage you to replace 'latest' with a hardcoded version number (like '1.0.0-rc.8') in production applications -->
   <script src="//cdn.jsdelivr.net/leaflet.esri/latest/esri-leaflet.js"></script>
   
-  <script src="hartford.geojson"></script>
-  
-  <!-- Load jquery to load external geoJson -->
+  <!-- Load jquery to load  geoJson -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 
   <style>
@@ -31,16 +29,14 @@
 
   L.esri.basemapLayer('Streets').addTo(map);
   
+  /* Tutorial http://maptimeboston.github.io/leaflet-intro/ */
   
-  /* Tutorial http://savaslabs.com/2015/05/18/mapping-geojson.html */
+    // load GeoJSON from an external file in the same folder
+  $.getJSON("hartford-border.geojson",function(data){
+    // add GeoJSON layer to the map once the file is loaded; be sure to spell L.geoJson exactly this way
+    L.geoJson(data).addTo(map);
+  });
   
-  function addDataToMap(data, map) {
-    var dataLayer = L.geoJson(data);  // be sure to spell L.geoJson with this exact capitalization
-    dataLayer.addTo(map);
-}
-
-/* CORS must be enabled; avoid http vs https conflicts */
-$.getJSON("hartford.geojson", function(data) { addDataToMap(data, map); });
 </script>
 
 </body>
