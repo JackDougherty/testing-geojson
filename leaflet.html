@@ -6,14 +6,14 @@
 
   <!-- Load Leaflet from CDN-->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
-  <script src="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
+  <script src="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
   
   <!-- Load Esri Leaflet from CDN -->
   <!-- we encourage you to replace 'latest' with a hardcoded version number (like '1.0.0-rc.8') in production applications -->
-  <script src="http://cdn.jsdelivr.net/leaflet.esri/latest/esri-leaflet.js"></script>
+  <script src="//cdn.jsdelivr.net/leaflet.esri/latest/esri-leaflet.js"></script>
   
   <!-- Load jquery to load external geoJson -->
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 
   <style>
     body { margin:0; padding:0; }
@@ -31,7 +31,7 @@
   
   /* Tutorial http://savaslabs.com/2015/05/18/mapping-geojson.html */
   function addDataToMap(data, map) {
-    var dataLayer = L.geoJson(data);
+    var dataLayer = L.geoJson(data);  // be sure to spell L.geoJson with this exact capitalization
     dataLayer.addTo(map);
 }
 
@@ -46,7 +46,7 @@ function addDataToMap(data, map) {
     dataLayer.addTo(map);
 }
 /* CORS must be enabled; avoid http vs https conflicts */
-$.getJSON("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson", function(data) { addDataToMap(data, map); });
+$.getJSON("//earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson", function(data) { addDataToMap(data, map); });
   
 </script>
 
