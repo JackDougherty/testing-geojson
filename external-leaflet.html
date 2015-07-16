@@ -36,6 +36,7 @@
     L.geoJson(border).addTo(map);
   });
   
+  /*
   // Load geojson polygon, add styling, then add to map
   $.getJSON("bloomfield-border.geojson",function(border){ 
     L.geoJson(border, {
@@ -46,6 +47,27 @@
       }
     }).addTo(map);
   });
+  */
+  
+  // Another way, if need to declare new layer as a variable, for layer control
+  // Load geojson polygon, declare as variable, add styling, and add to map with layer control
+  $.getJSON("bloomfield-border.geojson",function(border){ 
+    var bloomfield = L.geoJson(border, {
+      style: function(feature){
+        return { color: "red", 
+        fillOpacity: 0
+        };
+      }
+    });
+  });
+  var baseLayers = {
+    bloomfield
+  };
+  var overlays = {}; // empty
+  L.control.layers(baseLayers, overlays).addTo(map);
+
+
+
 
   /*
   // Simple: load geojson points from external file in same directory, add with no styling
