@@ -31,11 +31,13 @@
   
   /* Tutorial http://maptimeboston.github.io/leaflet-intro/ */
   
-    // load GeoJSON from an external file in the same folder
-  $.getJSON("hartford-border.geojson",function(data){
-    // add GeoJSON layer to the map once the file is loaded; be sure to spell L.geoJson exactly this way
-    L.geoJson(data).addTo(map);
+  // Simple: load geojson from an external file in the same directory, then add to map with no styling; spell L.geoJson exactly this way
+  $.getJSON("hartford-border.geojson",function(border){ 
+    L.geoJson(border).addTo(map);
   });
+  
+  // Load geojson and add with styling
+  
   
 </script>
 
