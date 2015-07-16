@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset=utf-8 />
-  <title>Leaflet load external geojson</title>
+  <title>Leaflet getJSON with control layers</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
   <!-- Load Leaflet from CDN-->
@@ -13,10 +13,7 @@
   <script src="//cdn.jsdelivr.net/leaflet.esri/latest/esri-leaflet.js"></script>
   
   <!-- Load jQuery to do JSON calls when needed -->
-  
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-  <!--Load file to be added as a geojson layer, without need for jQuery-->
-    <script src="bloomfield-border.js"></script>
 
   <style>
     body { margin:0; padding:0; }
@@ -29,16 +26,30 @@
 
 <script>
   // Tutorial http://maptimeboston.github.io/leaflet-intro/ 
+  
+    var map = new L.map('map', {
+            center: new L.LatLng(41.7665, -72.6814),
+            zoom: 11,
+        });
+        
+        
+  L.control.layers({
+    'ESRI Streets': L.esri.basemapLayer('Streets').addTo(map),
+    'ESRI Topo': L.esri.basemapLayer('Topo')
+}, {
+    'Bike Stations': L.mapbox.tileLayer('examples.bike-locations'),
+    'Bike Lanes': L.mapbox.tileLayer('examples.bike-lanes')
+}).addTo(map);
 
-/*
+
+
+  
   // Simple: load geojson polygon from an external file in the same directory, then add to map with no styling; spell L.geoJson exactly this way
   $.getJSON("hartford-border.geojson",function(borderH){ 
     L.geoJson(borderH).addTo(map);
   });
-  */
   
-  /*
-  // Load geojson polygon, add styling, then add to map
+  // Load geojson polygon, add styling, then add directly to map, because I cannot do this using L.control.layer
   $.getJSON("bloomfield-border.geojson",function(border){ 
     L.geoJson(border, {
       style: function(feature){
@@ -48,35 +59,7 @@
       }
     }).addTo(map);
   });
-  */
   
-    
-    // BUT if you need to declare layer as a variable (for layer control)
-    // download geojson and modify file: var borders = {...     and }; at end; change suffix to .js
-    // Load file in header script above, add as geojson layer, declare as variable (for layer control), add styling, then add to map
-    var bloomfield = L.geoJson(borders, {   
-      style: function(feature){
-        return { color: "red", 
-        fillOpacity: 0
-        };
-      }
-    });
-
-  var map = new L.map('map', {
-            center: new L.LatLng(41.7665, -72.6814),
-            zoom: 11,
-            layers: [streets, bloomfield],   //default display, can be base + overlays
-        });
-
-  var streets = L.esri.basemapLayer('Streets');
-  
-  var baseLayers = {"Streets": streets};
-  var overlays = {"Bloomfield border": bloomfield }; 
-  L.control.layers(baseLayers, overlays).addTo(map);
-
-
-
-
   /*
   // Simple: load geojson points from external file in same directory, add with no styling
   $.getJSON("police-locations.geojson",function(locations){
@@ -98,6 +81,7 @@
     }).addTo(map);
   });
   */
+  
   // load geojson points from external file, add icon, and popup window (based on properties in the geoJson file)
   $.getJSON("police-locations.geojson",function(locations){
     var policeIcon = L.icon({
@@ -112,8 +96,3 @@
       }
     }).addTo(map);
   });
-  
-</script>
-
-</body>
-</html>
