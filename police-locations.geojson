@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "ADDRESS": "253 HIGH ST", "TYPE": "POLICE DEPARTMENT", "GlobalID": "{3F41A3DD-0E12-4CE7-B7FF-9C61BACF6457}" }, "geometry": { "type": "Point", "coordinates": [ -72.678036527462041, 41.77244396148874 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "ADDRESS": "830 MAPLE AV", "TYPE": "SUBSTATION", "GlobalID": "{455DA8F8-A971-4D49-99B9-7362F0F1C177}" }, "geometry": { "type": "Point", "coordinates": [ -72.685664199368318, 41.736900430132465 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "ADDRESS": "130 NEW BRITAIN AV", "TYPE": "SUBSTATION", "GlobalID": "{A47422E3-3AB7-454D-BF6C-EF288AB7556A}" }, "geometry": { "type": "Point", "coordinates": [ -72.687459469519411, 41.74524612673985 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "ADDRESS": "134 AFFLECK ST", "TYPE": "SUBSTATION", "GlobalID": "{E9B5957F-CC7F-464B-BB55-6772D6A9B979}" }, "geometry": { "type": "Point", "coordinates": [ -72.689168210325377, 41.755958185980369 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 5, "ADDRESS": "211 FARMINGTON AV", "TYPE": "SUBSTATION", "GlobalID": "{9753A1EA-EB8B-4BAF-ACB0-1674CBEADB72}" }, "geometry": { "type": "Point", "coordinates": [ -72.694827011066067, 41.767500112739469 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 6, "ADDRESS": "20 SERGEANT ST", "TYPE": "SUBSTATION", "GlobalID": "{7B70DD4F-111A-4C4F-A107-62EF87D02101}" }, "geometry": { "type": "Point", "coordinates": [ -72.687979442980421, 41.77480404247337 ] } }
+]
+}
