@@ -68,7 +68,7 @@
     }).addTo(map);
   });
   */
-  // load geojson points from external file, add icon, and popup window
+  // load geojson points from external file, add icon, and popup window (based on properties in the geoJson file)
   $.getJSON("police-locations.geojson",function(locations){
     var policeIcon = L.icon({
       iconUrl: 'police-icon.svg',
