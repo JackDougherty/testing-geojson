@@ -37,8 +37,8 @@ $.getJSON("bloomfield-border.geojson",function(border){
     'ESRI Streets': L.esri.basemapLayer('Streets').addTo(map),
     'ESRI Topographic': L.esri.basemapLayer('Topographic')
   }, {
-    'Bloomfield': L.geoJson(border)
-  }).addTo(map);
+    'Bloomfield': L.geoJson(border).addTo(map)
+  });
 });
 
 
