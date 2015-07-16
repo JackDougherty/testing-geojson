@@ -20,15 +20,12 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiamFja2RvdWdoZXJ0eSIsImEiOiJxMi11TGlzIn0.ydUTG
 var map = L.mapbox.map('map', 'mapbox.streets')
     .setView([41.76, -72.67], 13);
 
-// As with any other AJAX request, this technique is subject to the Same Origin Policy:
-// http://en.wikipedia.org/wiki/Same_origin_policy
-// So the CSV file must be on the same domain as the Javascript, or the server
-// delivering it should support CORS.
+// load geoJson files in same directory or remote server (if CORS enabled; avoid http vs https errors)
 var hartford = L.mapbox.featureLayer()
     .loadURL('hartford-border.geojson')
     .addTo(map);
 var bloomfield = L.mapbox.featureLayer()
-    .loadURL('bloomfield-border-geojson')
+    .loadURL('bloomfield-border.geojson')
     .addTo(map);
 var busLocations = L.mapbox.featureLayer()
     .loadURL('//gisdata.hartford.gov/datasets/453fb4c1dff74efdbdb46fadfd257e28_0.geojson')
