@@ -63,8 +63,9 @@
     });
   }
   $.getJSON("bloomfield-border.geojson", function(data) { addDataToMap(data,map); });
+  
   var baseLayers = { }; //empty
-  var overlays = {bloomfield}; 
+  var overlays = {"Bloomfield border": bloomfield}; 
   L.control.layers(baseLayers, overlays).addTo(map);
 
 
