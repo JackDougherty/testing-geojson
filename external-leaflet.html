@@ -62,13 +62,13 @@
   var map = new L.map('map', {
             center: new L.LatLng(41.7665, -72.6814),
             zoom: 11,
-            layers: [streets, locations, bloomfield],   //default display, can be base + overlays
+            layers: [streets, bloomfield],   //default display, can be base + overlays
         });
 
   var streets = L.esri.basemapLayer('Streets');
   
   var baseLayers = {"Streets": streets};
-  var overlays = {"HPS locations":locations, "Bloomfield border": bloomfield }; 
+  var overlays = {"Bloomfield border": bloomfield }; 
   L.control.layers(baseLayers, overlays).addTo(map);
 
 
