@@ -47,10 +47,25 @@
     }).addTo(map);
   });
 
-  // Simple: load geojson points from extenral file in same directory, add with no styling
+  /*
+  // Simple: load geojson points from external file in same directory, add with no styling
   $.getJSON("police-locations.geojson",function(locations){
     L.geoJson(locations).addTo(map);
     });
+  */
+  
+  // load geojson points from external file, add styling
+  $.getJSON("police-locations.geojson",function(locations){
+    var policeIcon = L.icon({
+      iconURL: 'police-icon.svg',
+      iconSize: [30,30]
+    });
+    L.geoJson(locations,{
+      pointToLayer: function(feature,latlng){
+        return L.marker(latlng,{icon: policeIcon});
+      }
+    }).addTo(map);
+  });
   
 </script>
 
