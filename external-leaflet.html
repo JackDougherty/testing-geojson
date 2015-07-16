@@ -25,7 +25,8 @@
 <div id="map"></div>
 
 <script>
-  var map = L.map('map').setView([41.7665, -72.6814], 11);
+  var map = L.map('map')
+    .setView([41.7665, -72.6814], 11);
 
   L.esri.basemapLayer('Streets').addTo(map);
   
@@ -62,10 +63,8 @@
     });
   }
   $.getJSON("bloomfield-border.geojson", function(data) { addDataToMap(data,map); });
-  var baseLayers = {
-    bloomfield
-  };
-  var overlays = {}; // empty
+  var baseLayers = { }; //empty
+  var overlays = {bloomfield}; 
   L.control.layers(baseLayers, overlays).addTo(map);
 
 
