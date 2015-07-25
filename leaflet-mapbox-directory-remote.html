@@ -33,19 +33,19 @@ L.control.layers({
     .loadURL('bloomfield-border.geojson')
     .addTo(map),
   'Bus locations': L.mapbox.featureLayer()
-    .loadURL('//gisdata.hartford.gov/datasets/453fb4c1dff74efdbdb46fadfd257e28_0.geojson') 
+    .loadURL('http://gisdata.hartford.gov/datasets/453fb4c1dff74efdbdb46fadfd257e28_0.geojson')
 }).addTo(map);
 
 
 /* WORKS
 // my styling attempts are NOT yet working
 var busLocations = L.mapbox.featureLayer()
-    .loadURL('//gisdata.hartford.gov/datasets/453fb4c1dff74efdbdb46fadfd257e28_0.geojson', { 
+    .loadURL('http://gisdata.hartford.gov/datasets/453fb4c1dff74efdbdb46fadfd257e28_0.geojson', { 
       properties: {
         'marker-symbol': 'bus',
         'marker-color': 'blue'
       }
-    }) 
+    })
     .addTo(map);
 */
 

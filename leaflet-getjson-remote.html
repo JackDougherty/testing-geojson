@@ -5,15 +5,15 @@
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
   <!-- Load Leaflet from CDN-->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
-  <script src="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
-  
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
+  <script src="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
+
   <!-- Load Esri Leaflet from CDN -->
   <!-- we encourage you to replace 'latest' with a hardcoded version number (like '1.0.0-rc.8') in production applications -->
-  <script src="//cdn.jsdelivr.net/leaflet.esri/latest/esri-leaflet.js"></script>
-  
+  <script src="http://cdn.jsdelivr.net/leaflet.esri/latest/esri-leaflet.js"></script>
+
   <!-- Load jquery to call geoJson -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 
   <style>
     body { margin:0; padding:0; }
@@ -28,7 +28,7 @@
   var map = L.map('map').setView([41.7665, -72.6814], 2);
 
   L.esri.basemapLayer('Streets').addTo(map);
-  
+
   /* Tutorial http://savaslabs.com/2015/05/18/mapping-geojson.html */
   function addDataToMap(data, map) {
     var dataLayer = L.geoJson(data);  // be sure to spell L.geoJson with this exact capitalization
@@ -45,9 +45,9 @@ function addDataToMap(data, map) {
         });
     dataLayer.addTo(map);
 }
-/* CORS must be enabled; avoid http vs https conflicts */
-$.getJSON("//earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson", function(data) { addDataToMap(data, map); });
-  
+/* CORS must be enabled */
+$.getJSON("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson", function(data) { addDataToMap(data, map); });
+
 </script>
 
 </body>

@@ -5,16 +5,16 @@
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
   <!-- Load Leaflet from CDN-->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
-  <script src="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
-  
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
+  <script src="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
+
   <!-- Load Esri Leaflet from CDN -->
   <!-- we encourage you to replace 'latest' with a hardcoded version number (like '1.0.0-rc.8') in production applications -->
   <script src="//cdn.jsdelivr.net/leaflet.esri/latest/esri-leaflet.js"></script>
-  
+
   <!-- Load jQuery to do JSON calls when needed -->
-  
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 
   <style>
     body { margin:0; padding:0; }
@@ -26,33 +26,33 @@
 <div id="map"></div>
 
 <script>
-  // Tutorial http://maptimeboston.github.io/leaflet-intro/ 
-  
+  // Tutorial http://maptimeboston.github.io/leaflet-intro/
+
     var map = new L.map('map', {
             center: new L.LatLng(41.7665, -72.6814),
             zoom: 11,
         });
   var streets = L.esri.basemapLayer('Streets').addTo(map);
-  
+
 
   // Simple: load geojson polygon from an external file in the same directory, then add to map with no styling; spell L.geoJson exactly this way
-  $.getJSON("hartford-border.geojson",function(borderH){ 
+  $.getJSON("hartford-border.geojson",function(borderH){
     L.geoJson(borderH).addTo(map);
   });
 
-  
+
 
   // Load geojson polygon, add styling, then add directly to map, because I cannot do this using L.control.layer
-  $.getJSON("bloomfield-border.geojson",function(border){ 
+  $.getJSON("bloomfield-border.geojson",function(border){
     L.geoJson(border, {
       style: function(feature){
-        return { color: "red", 
+        return { color: "red",
         fillOpacity: 0
         };
       }
     }).addTo(map);
   });
-  
+
 
   /*
   // Simple: load geojson points from external file in same directory, add with no styling
@@ -60,9 +60,9 @@
     L.geoJson(locations).addTo(map);
     });
   */
-  
+
   /*
-  // load geojson points from external file, add icon 
+  // load geojson points from external file, add icon
   $.getJSON("police-locations.geojson",function(locations){
     var policeIcon = L.icon({
       iconUrl: 'police-icon.svg',
@@ -75,7 +75,7 @@
     }).addTo(map);
   });
   */
-  
+
   // load geojson points from external file, add icon, and popup window (based on properties in the geoJson file)
   $.getJSON("police-locations.geojson",function(locations){
     var policeIcon = L.icon({

@@ -5,15 +5,15 @@
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
   <!-- Load Leaflet from CDN-->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
-  <script src="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
-  
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
+  <script src="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
+
   <!-- Load Esri Leaflet from CDN -->
   <!-- we encourage you to replace 'latest' with a hardcoded version number (like '1.0.0-rc.8') in production applications -->
-  <script src="//cdn.jsdelivr.net/leaflet.esri/latest/esri-leaflet.js"></script>
-  
+  <script src="http://cdn.jsdelivr.net/leaflet.esri/latest/esri-leaflet.js"></script>
+
   <!-- Load jQuery to do JSON calls when needed -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 
   <style>
     body { margin:0; padding:0; }
@@ -25,15 +25,15 @@
 <div id="map"></div>
 
 <script>
-  // Tutorial http://maptimeboston.github.io/leaflet-intro/ 
-  
+  // Tutorial http://maptimeboston.github.io/leaflet-intro/
+
     var map = new L.map('map', {
             center: new L.LatLng(41.7665, -72.6814),
             zoom: 11,
         });
 
 /* Load a single geoJson file, with control layers
-$.getJSON("bloomfield-border.geojson",function(border){        
+$.getJSON("bloomfield-border.geojson",function(border){
   L.control.layers({
     'ESRI Streets': L.esri.basemapLayer('Streets').addTo(map),
     'ESRI Topographic': L.esri.basemapLayer('Topographic')
@@ -45,7 +45,7 @@ $.getJSON("bloomfield-border.geojson",function(border){
 
 // Nested functions to call two geoJson files, with control layers
 $.getJSON("hartford-border.geojson",function(borderh){
-  $.getJSON("bloomfield-border.geojson",function(borderb){        
+  $.getJSON("bloomfield-border.geojson",function(borderb){
     L.control.layers({
       'ESRI Streets': L.esri.basemapLayer('Streets').addTo(map),
       'ESRI Topographic': L.esri.basemapLayer('Topographic')
